@@ -4,6 +4,7 @@ import {
     StyleSheet,
     Text,
     View,
+    Image,
     TouchableOpacity
   } from 'react-native';
 
@@ -18,12 +19,13 @@ export default class TabBar extends Component {
     // }
     constructor(props) {
         super(props);
-        // this.props = {
-        //         activeTextColor: '#323232',
-        //         inactiveTextColor: '#fed226',
-        //         activeBgColor:'#ff0000',
-        //         inactiveBgColor:'#ffffff'};
+        this.props = {
+                defaultLeftDrawable: '../image/tab_bt_left_default.png',
+                selectedLeftDrawable: '../image/tab_bt_left_selected.png',
+                defaultRightDrawable:'../image/tab_bt_right_default.png',
+                selectedRightDrawable:'../image/tab_bt_right_selected.png'};
        }
+       
        render() {
          return (
             <View style={[styles.tabs, {backgroundColor: this.props.backgroundColor, }, this.props.style, ]}>
@@ -40,8 +42,18 @@ export default class TabBar extends Component {
        renderTab(name, page, isTabActive, onPressHandler){
 
             // const { activeTextColor, inactiveTextColor, activeBgColor, inactiveBgColor} = this.props;
-            const textColor = isTabActive ?  '#323232' : '#fed226';
-            const BgColor = isTabActive ? '#ff0000' : '#ffffff';
+            const textColor = isTabActive ?  '#000000' : '#fed226';
+            
+            var leftDrawable = isTabActive
+            ? require("../image/tab_bt_left_selected.png")
+            : require("../image/tab_bt_left_default.png");
+            var rightDrawable = isTabActive
+            ? require("../image/tab_bt_right_selected.png")
+            : require("../image/tab_bt_right_default.png");
+
+            var icon = page == 0 ?
+            leftDrawable : rightDrawable;
+
             return <TouchableOpacity
             style={{flex: 1, }}
                 key={name}
@@ -51,9 +63,12 @@ export default class TabBar extends Component {
             onPress={() => onPressHandler(page)}
           >
             <View style={[styles.tab,]}>
-              <Text style={[{color: textColor, backgroundColor:BgColor, fontSize: 13 },  ]}>
-                {name}
+            
+              <Image source={icon} style={styles.image}/>
+              <Text style={[{color: textColor, fontSize: 13 },  ]}>
+                  {name}
               </Text>
+             
             </View>
           </TouchableOpacity>;
        }
@@ -62,9 +77,19 @@ export default class TabBar extends Component {
 
 const styles = StyleSheet.create({
     tab: {
-      flex: 1,
+      // position: 'absolute',
+      position:'absolute',
+      width:102,
+      height:30,
       alignItems: 'center',
       justifyContent: 'center'
+    },
+    image:{
+      position:'absolute',
+      justifyContent:'center',
+      width:102,
+      height:30,
+      resizeMode: "stretch"
     },
     tabs: {
       height: 36,

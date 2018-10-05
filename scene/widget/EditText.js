@@ -15,39 +15,53 @@ import {
     }
 
     render() {
+      
         return (
+
           <View style={LoginStyles.TextInputView}>
-         
-           <TextInput style={LoginStyles.TextInput}
-             placeholder={this.props.name}
-             secureTextEntry={this.props.secureTextEntry}
-             onChangeText={
-               (text) => {
-                 this.setState({text});
-                 this.props.onChangeText(text);
-               }
-            }
-           />
+            <Image source={this.props.image} 
+                    style={LoginStyles.TextInputImage}/>
+            <TextInput style={LoginStyles.TextInput}
+              placeholder={this.props.name}
+              secureTextEntry={this.props.secureTextEntry}
+              onChangeText={
+                (text) => {
+                  this.setState({text});
+                  this.props.onChangeText(text);
+                }
+              }
+            />
            </View>
         );
       }
   }
 
   const LoginStyles = StyleSheet.create({
+
     TextInputView: {
       marginTop: 10,
-      height:50,
       backgroundColor: '#ffffff',
-      borderRadius:5,
-      borderWidth:0.3,
-      borderColor:'#000000',
-      flexDirection: 'column',
-      justifyContent: 'center',
+      flexDirection: 'row',
+      alignItems:'center',
+    },
+    TextInputInnerView:{
+      backgroundColor:'white',
+      height:48,
+      flexDirection:'row',
+      alignItems:'center',
+    },
+    TextInputImage:{
+      width:20,
+      height:20,
+      justifyContent: 'flex-start'
+
     },
   
     TextInput: {
-      backgroundColor: '#ffffff',
-      height:45,
-      margin:18,
+      height:50,
+      flex: 1,
+      textAlign: 'left',
+      textAlignVertical:'bottom',
+      flexDirection: 'row',
     },
   });

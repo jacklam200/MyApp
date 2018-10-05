@@ -8,6 +8,7 @@ import {
     Text,
     Alert,
     ScrollView,
+    ActivityIndicator,
     Button
 } from 'react-native';
 import BaseComponent from '../base/BaseComponent'
@@ -16,6 +17,8 @@ import LoginButton from '../widget/LoginBtn'
 import TabBar from '../widget/TabBar'
 import LoginStyles from '../css/logincss'
 import ContainerStyles from '../device/dimensions'
+import Constants from '../constants/constants'
+import LoginApi from '../api/loginApi'
 export default class LoginScene extends BaseComponent {
     constructor(props) {
         super(props);
@@ -24,6 +27,7 @@ export default class LoginScene extends BaseComponent {
         this.state = {
             myName: 'I am MyName!',
             activePage:0,
+            isLoading: false,
         }
     }
 
@@ -43,7 +47,7 @@ export default class LoginScene extends BaseComponent {
 
                 {this.renderLogin()}
             
-                <LoginButton style={{ marginTop: 80 }} name='登录' onPressCallback={this.onPressCallback} />
+                <LoginButton style={{ marginTop: 80}} name='登录' onPressCallback={this.onPressCallback} />
                 <Text style={LoginStyles.desc}>登录说明</Text>
                 <Image source={require('../image/dc_icon_tianhong_logo.png') } style={LoginStyles.bottomLogo}/>
             </ScrollView>
@@ -62,11 +66,11 @@ export default class LoginScene extends BaseComponent {
     renderRainbowLogin(){
        
         return (
-            <View>
-                <EditText name='输入用户名/注册手机号' onChangeText={(text) => {
+            <View style={LoginStyles.container}>
+                <EditText name='输入用户名/注册手机号' image={require('../image/icon_login_user.png')} onChangeText={(text) => {
                     this.userName = text;
                 }} />
-                <EditText name='输入密码' secureTextEntry={true} onChangeText={(text) => {
+                <EditText name='输入密码' image={require('../image/icon_login_password.png')} secureTextEntry={true} onChangeText={(text) => {
                     this.password = text;
                 }} />
             </View>
@@ -75,14 +79,14 @@ export default class LoginScene extends BaseComponent {
 
     renderBBCLogin(){
         return (
-            <View>
-                <EditText name='输入用户名/注册手机号' onChangeText={(text) => {
+            <View style={LoginStyles.container}>
+                <EditText name='输入用户名/注册手机号' image={require('../image/icon_login_user.png')} onChangeText={(text) => {
                     this.userName = text;
                 }} />
-                <EditText name='输入密码' secureTextEntry={true} onChangeText={(text) => {
+                <EditText name='输入密码' image={require('../image/icon_login_password.png')} secureTextEntry={true} onChangeText={(text) => {
                     this.password = text;
                 }} />
-                <EditText name='输入密码' onChangeText={(text) => {
+                <EditText name='请输入验证码' image={require('../image/icon_login_verification.png')} onChangeText={(text) => {
                     this.password = text;
                 }} />
             </View>
@@ -94,7 +98,9 @@ export default class LoginScene extends BaseComponent {
     }
 
     onPressCallback = () => {
-        console.log("login");
+        console.log("login1");
+        LoginApi.login(this.onLoginCallback);
+        // this.props.navigation.navigate('HomeScene');
         // let formData = new FormData();
         // formData.append("clientId", "32322");
         // formData.append("loginName", this.userName);
@@ -108,6 +114,14 @@ export default class LoginScene extends BaseComponent {
          }) */
 
 
+    };
+
+    onLoginCallback = (responseJson) => {
+        console.log("login2");
+        console.log(responseJson);
+        if(responseJson != null && responseJson.code == "200"){
+            this.props.navigation.navigate('HomeScene', {data:responseJson});
+        }
     };
 
 }

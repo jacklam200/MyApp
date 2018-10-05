@@ -11,19 +11,15 @@ import {
 } from 'react-native';
 
 import BaseComponent from '../base/BaseComponent'
-
+import { AppNavigator } from '../ui/home/tabNavigator';
 export default class HomeScene extends BaseComponent {
     render(){
+        var item = this.props.navigation.state.params;
+        console.log(item);
         super.render();
+        
         return (
-            <View style={{flexDirection:'row'}}>
-            <View style={{ width: 60, height: 100, backgroundColor: 'powderblue' }}>
-                <Text>我是里面的View</Text>
-            </View>
-            <View style={{ backgroundColor: 'red' }}>
-                <Text>我是里面下面的View</Text>
-            </View>
-        </View>
+            <AppNavigator screenProps={item}/>
         );
     }
 }

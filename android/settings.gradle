@@ -1,3 +1,5 @@
 rootProject.name = 'MyApp'
+include ':react-native-sodium'
+project(':react-native-sodium').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-sodium/android')
 
 include ':app'

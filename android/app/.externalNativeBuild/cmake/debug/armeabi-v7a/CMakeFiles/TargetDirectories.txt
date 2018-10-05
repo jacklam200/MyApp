@@ -1,0 +1,2 @@
+F:/work/react/MyApp/android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/edit_cache.dir
+F:/work/react/MyApp/android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/rebuild_cache.dir

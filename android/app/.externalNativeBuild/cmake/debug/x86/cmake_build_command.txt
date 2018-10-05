@@ -1,0 +1,15 @@
+Executable : D:\Android\sdk1\cmake\3.6\bin\cmake.exe
+arguments : 
+-HF:\work\react\MyApp\android\app
+-BF:\work\react\MyApp\android\app\.externalNativeBuild\cmake\debug\x86
+-GAndroid Gradle - Ninja
+-DANDROID_ABI=x86
+-DANDROID_NDK=D:\Android\android-ndk-r12b
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=F:\work\react\MyApp\android\app\build\intermediates\cmake\debug\obj\x86
+-DCMAKE_BUILD_TYPE=Debug
+-DCMAKE_MAKE_PROGRAM=D:\Android\sdk1\cmake\3.6\bin\ninja.exe
+-DCMAKE_TOOLCHAIN_FILE=D:\Android\sdk1\cmake\3.6\android.toolchain.cmake
+-DANDROID_NATIVE_API_LEVEL=16
+-DANDROID_TOOLCHAIN=clang
+jvmArgs : 
+

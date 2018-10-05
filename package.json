@@ -10,8 +10,8 @@
     "prop-types": "^15.6.2",
     "react": "16.3.1",
     "react-native": "0.55.4",
-    "react-navigation": "git+https://github.com/react-community/react-navigation.git",
-    "react-native-sodium":"git+https://github.com/lyubo/react-native-sodium.git"
+    "react-native-sodium": "git+https://github.com/lyubo/react-native-sodium.git",
+    "react-navigation": "git+https://github.com/react-community/react-navigation.git"
   },
   "devDependencies": {
     "babel-jest": "23.2.0",

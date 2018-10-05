@@ -9,7 +9,6 @@ const LoginStyles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
-        justifyContent: 'flex-start',
         alignItems: 'center',
     },
     logo:{
@@ -21,15 +20,12 @@ const LoginStyles = StyleSheet.create({
         marginTop:20,
         marginBottom:20,
     },
-
     desc:{
         flex: 1,
         flexDirection:'row',
         justifyContent:'center',
         backgroundColor:'white',
-
     },
-
     bottomLogo:{
     
         flexDirection:'row',

@@ -14,11 +14,13 @@ export default class LoginButton extends Component {
        }
        render() {
          return (
+           <View  style={LoginStyles.loginContainer}>
            <TouchableOpacity onPress={this.props.onPressCallback} style={LoginStyles.loginTextView}>
              <Text style={LoginStyles.loginText} >
                  {this.props.name}
              </Text>
            </TouchableOpacity>
+           </View>
          );
        }
      
@@ -27,17 +29,22 @@ export default class LoginButton extends Component {
 const LoginStyles = StyleSheet.create({
 
     loginText: {
-      color: '#ffffff',
+       color: '#323232',
        fontWeight: 'bold',
-       width:30,
+       flexDirection: 'row',
+      
+    },
+    loginContainer:{
+      marginTop: 10,
+      height:44,
+      flexDirection: 'row',
     },
     loginTextView: {
-      marginTop: 10,
-      height:50,
-      backgroundColor: '#3281DD',
-      borderRadius:5,
       flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems:'center',
+      flex:1,
+      backgroundColor: '#fed427',
+      borderRadius:5,
+      alignItems: 'center',
+      justifyContent:'center',
     },
   });

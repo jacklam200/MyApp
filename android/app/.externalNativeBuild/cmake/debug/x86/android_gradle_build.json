@@ -1,0 +1,16 @@
+
+{
+	"buildFiles" : [ "F:/work/react/MyApp/android/app/CMakeLists.txt" ],
+	"cleanCommands" : 
+	[
+		"D:\\Android\\sdk1\\cmake\\3.6\\bin\\cmake.exe --build F:\\work\\react\\MyApp\\android\\app\\.externalNativeBuild\\cmake\\debug\\x86 --target clean"
+	],
+	"toolchains" : 
+	{
+		"3336617601" : 
+		{
+			"cCompilerExecutable" : "D:/Android/android-ndk-r12b/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "D:/Android/android-ndk-r12b/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}
