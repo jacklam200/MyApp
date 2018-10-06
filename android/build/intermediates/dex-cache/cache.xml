@@ -21,6 +21,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="F:\work\react\MyApp\android\app\build\intermediates\exploded-aar\MyApp\react-native-sodium\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6c2306604d7817d4f81ffbd2532a640614ab71f0">
+        <dex dex="F:\work\react\MyApp\android\app\build\intermediates\pre-dexed\debug\MyApp-react-native-sodium-unspecified_ba7c8ee103d6255a71e145d5e3bdb00680a20d62.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="F:\work\react\MyApp\android\app\build\intermediates\exploded-aar\com.facebook.fresco\fbcore\1.3.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
