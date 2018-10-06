@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import{
   TabNavigator,
+  createBottomTabNavigator
 } from 'react-navigation'
 import MainScene from '../../ui/home/mainScene';
 import DataScene from '../../ui/home/dataScene';
@@ -24,7 +25,7 @@ const iconMemberSelected = require('../../image/icon_tab_members_selected.png');
 const iconMyDefault = require('../../image/icon_tab_my_default.png');
 const iconMySelected = require('../../image/icon_tab_my_selected.png');
 
-export const AppNavigator = TabNavigator({
+export const AppNavigator =  createBottomTabNavigator({
 	MainScene: {
         screen: MainScene, navigationOptions: {
 		tabBarLabel: '首页',
