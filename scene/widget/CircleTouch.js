@@ -1,5 +1,4 @@
-
-import React from 'react'; 
+import React, { Component }  from 'react'; 
 
 import {  
     AppRegistry,
@@ -15,15 +14,29 @@ var CIRCLE_COLOR = 'blue';
 var CIRCLE_HIGHLIGHT_COLOR = 'green';
 
 export default class CircleTouch extends Component {
+  _previousLeft: number = 0;
+  _previousTop: number = 0;
+  _circleStyles: {|style: CircleStyles|} = {style: {}};
+  circle: ?React.ElementRef<typeof View> = null;
+
     constructor(props) {
         super(props);
         // this.props = {
         // }
-        this._panResponder = {},
-        this._previousLeft =  0,
-        this._previousTop = 0,
-        this._circleStyles = {},
-        this.circle = (null = ?{ setNativeProps(props)void }),
+        this._panResponder = {};
+        // this._previousLeft =  0;
+        // this._previousTop = 0;
+        // this._circleStyles = {style: {left: this._previousLeft, top: this._previousTop}};
+
+        // this._circleStyles = { 
+        //   style: {
+        //   left: this._previousLeft,
+        //   top: this._previousTop
+        //   }
+        // };
+        this.circle =  (null : ?{ setNativeProps(props: Object): void });
+        
+  
     }
 
     componentWillMount(){
@@ -40,10 +53,10 @@ export default class CircleTouch extends Component {
         this._previousLeft = 20;
         this._previousTop = 84;
         this._circleStyles = {
-        style: {
-            left: this._previousLeft,
-            top: this._previousTop
-            }
+          style: {
+              left: this._previousLeft,
+              top: this._previousTop
+              }
         };
 
     }
@@ -56,6 +69,9 @@ export default class CircleTouch extends Component {
         return (
           <View style={styles.container}>
             <View
+              ref={(circle) => {
+                this.circle = circle;
+              }}
               style={styles.circle}
               {...this._panResponder.panHandlers}
             />
@@ -65,28 +81,27 @@ export default class CircleTouch extends Component {
 
 
     _highlight() {
-        const circle = this.circle;
-        circle && circle.setNativeProps({
-          style: {
-            backgroundColor: processColor(CIRCLE_HIGHLIGHT_COLOR)
-          }
-        });
+    
+      // this.refs.circle & this.refs.circle.setNativeProps({
+      //     style: {
+      //       backgroundColor: processColor(CIRCLE_HIGHLIGHT_COLOR)
+      //     }
+      //   });
     }
     
     _unHighlight() {
-        const circle = this.circle;
-        circle && circle.setNativeProps({
-          style: {
-            backgroundColor: processColor(CIRCLE_COLOR)
-          }
-        });
+      // this.refs.circle & this.refs.circle.setNativeProps({
+      //     style: {
+      //       backgroundColor: processColor(CIRCLE_COLOR)
+      //     }
+      //   });
     }
     _updatePosition() {
-        this.circle && this.circle.setNativeProps(this._circleStyles);
+      this.circle && this.circle.setNativeProps(this._circleStyles);
     }
 
     _handlePanResponderGrant(e, gestureState) {
-        this._highlight();
+        // this._highlight();
     }
 
     _handlePanResponderMove(e, gestureState) {

@@ -13,6 +13,7 @@ import {
 
 import BaseComponent from '../../base/BaseComponent'
 import HttpRequest from '../../network/http/HttpRequest'
+import CircleTouch from '../../widget/CircleTouch';
 export default class MineScene extends BaseComponent {
 
     componentWillMount() {
@@ -53,7 +54,11 @@ export default class MineScene extends BaseComponent {
                 </View>
                 <View style={{ backgroundColor: 'red' }}>
                     <Text>我是里面下面的View</Text>
-            </View>
+                </View>
+
+                <View style={{flex:1, backgroundColor: 'black' }}>
+                    <CircleTouch/>
+                </View>
         </View>
         );
     }
